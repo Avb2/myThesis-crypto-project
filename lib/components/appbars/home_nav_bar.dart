@@ -1,38 +1,47 @@
-import 'dart:js_interop';
+
+
 
 import 'package:flutter/material.dart';
+import 'package:thesis_desktop_app/components/tabs/community_thesis_tab.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget{
+import '../tabs/explore_community_tab.dart';
+
+
+
+class HomeNavBar extends StatefulWidget implements PreferredSizeWidget {
+  TabController tabController;
+
+  HomeNavBar(this.tabController);
+
   @override
-  CustomAppBarState createState() => CustomAppBarState();
-  
+  HomeNavBarState createState() => HomeNavBarState();
+
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
-  
+  Size get preferredSize => Size.fromHeight(kToolbarHeight  * 2);
+
 }
 
 
 
-class CustomAppBarState extends State<CustomAppBar> with WidgetsBindingObserver{
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
+class HomeNavBarState extends State<HomeNavBar>{
 
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: true,
       elevation: 1,
+      bottom: TabBar(
+        controller: widget.tabController,
+        tabs: [
+          ThesisTab(),
+          ExploreTab()
+        ]
+        ),
       leading: IconButton.outlined(
           onPressed: (){
             if (ModalRoute.of(context)!.settings.name != "/home") {
@@ -82,5 +91,5 @@ class CustomAppBarState extends State<CustomAppBar> with WidgetsBindingObserver{
       ],
     );
   }
-  
+ 
 }

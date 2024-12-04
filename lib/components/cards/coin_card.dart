@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/margins/margins.dart';
-import '../../constants/text_styles/coin_title_style.dart';
-import '../../constants/text_styles/sub_title_style.dart';
-import '../texts/copy_text_button.dart';
+import 'package:thesis_desktop_app/components/misc/coin_info.dart';
 
-class CoinCard extends StatefulWidget{
+import '../../constants/margins/margins.dart';
+
+class CoinCard extends StatefulWidget {
+  String coinName;
+  String contractAddress;
+
+  CoinCard(
+    this.coinName,
+    this.contractAddress,
+    {super.key}
+  );
+
+
   @override
   CoinCardState createState() => CoinCardState();
   
@@ -28,41 +37,9 @@ class CoinCardState extends State<CoinCard> {
             child: Card(
               child: Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.all(Margins.primaryMargin),
-                    alignment:Alignment.topRight, child: IconButton.outlined(onPressed: (){
-                      final snackbar = SnackBar(
-                        content: Text("Bookmarked!"),
-                        duration: Duration(milliseconds: 750),
-                        );
-                       ScaffoldMessenger.of(context).showSnackBar(snackbar);
-                    }, icon: Icon(Icons.bookmark))),
-                  Container(
-                    margin: Margins.toEdgeInsets(Margins.primaryMargin + 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 11),
-                          // Coin name
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "\$UBC",
-                            style: CoinTitleStyle.labelStyle(),
-                            )
-                          ),
-                        
-                          // Contract address
-                          Container(
-                          alignment: Alignment.topLeft,
-                          child: CopyTextButton("HAJJ13iSHDJ29402JDDPUMP", (){})
-                            )
-                          
-                      ],
-                    ),
-                  ),
-                    
+
+
+                  CoinInfoComponent(widget.coinName, widget.contractAddress),
 
 
                   

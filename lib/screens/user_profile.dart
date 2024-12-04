@@ -85,7 +85,7 @@ class UserProfile extends StatelessWidget {
                             child: ListView.builder(
                             itemCount: 5,
                             itemBuilder: (context, index){
-                              return CoinCard();
+                              return CoinCard("UBC", "AHHDHDHFB32HDHDJW11");
                             }
                             ),
                           ),

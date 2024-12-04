@@ -16,6 +16,7 @@ class CopyText extends StatelessWidget{
             // Copy text to clipboard
             Clipboard.setData(ClipboardData(text: data));
             final snackBar =  SnackBar(
+              duration: Duration(milliseconds: 750),
               content: Text("Copied!"),
             );
 
