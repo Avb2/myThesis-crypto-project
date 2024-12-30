@@ -20,7 +20,7 @@ class CommunityThesisPane extends StatelessWidget{
       child: ListView.builder(
         itemCount: 2,
         itemBuilder: (context, index) {
-          return ThesisCard("UBC", "9psiRdn9cXYVps4F1kFuoNjd2EtmqNJXrCPmRppJpump");
+          return ThesisCard("UBC", "9psiRdn9cXYVps4F1kFuoNjd2EtmqNJXrCPmRppJpump", "Buy the coin. That is the thesis");
         }
         ),
     );

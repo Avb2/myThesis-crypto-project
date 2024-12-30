@@ -10,8 +10,9 @@ import '../misc/coin_info.dart';
 class ThesisCard extends StatefulWidget{
   String coinName;
   String contractAddress;
+  String userText;
 
-  ThesisCard(this.coinName, this.contractAddress, {super.key});
+  ThesisCard(this.coinName, this.contractAddress, this.userText, {super.key});
   
   @override
   ThesisCardState createState() => ThesisCardState();
@@ -33,7 +34,13 @@ class ThesisCardState extends State<ThesisCard> {
             child: Card(
               child: Column(
                 children: [
-                  CoinInfoComponent(widget.coinName, widget.contractAddress)
+                  CoinInfoComponent(widget.coinName, widget.contractAddress),
+
+
+                  Text(
+                    widget.userText
+                  )
+
                 ],
               )
             ),
